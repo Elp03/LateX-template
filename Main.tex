@@ -1,0 +1,214 @@
+
+\documentclass[11pt,English,a4paper]{article}
+%%%%%%%%%%%%%%%
+\usepackage[table,xcdraw]{xcolor}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc} % Norske bokstaver
+\usepackage[english]{babel} % Norsk språkpakke
+\usepackage{graphicx} % Bilder
+\usepackage{subcaption} % Allow for side by side images
+\usepackage{subfiles} % For ryddighetens del
+\usepackage[a4paper, total={16cm, 24.7cm}]{geometry}
+\usepackage{caption}
+\usepackage{array}
+\usepackage{textgreek}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{calc}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{decorations.text}
+\usepackage{ifthen}
+\usepackage{pdfpages}
+\usepackage{pdflscape}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{hyperref}
+\singlespacing
+\onehalfspacing
+\doublespacing
+\setstretch{1.1}                % for custom spacing
+
+\usepackage{amsmath} 
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{1,1,1}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\usepackage{dirtytalk}          % Sitattegn ved bruk av /say{tekst}
+\usepackage{parskip}            % Fjerner innrykk
+\setlength\parskip{-2pt}        % Minker mellomrommet etter overskrifter.
+\usepackage{amsmath}            % For å endre oppsett på kryssreferanser
+\usepackage[font={small,it}]{caption} % Endrer figurteksten
+
+%Includes "References" in the table of contents
+\usepackage[nottoc]{tocbibind}
+
+%Title, date an author of the document
+\title{Bibliography management: BibTeX}
+\author{Overleaf}
+
+\usepackage[numbers]{natbib}
+%\usepackage{fancyhdr}
+
+
+\graphicspath{{Image/}}
+\renewcommand{\abstractname}{Summary}
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Tabell}
+\renewcommand{\contentsname}{Content}
+\numberwithin{equation}{section} % Nummererer ligninger pr. seksjon
+\numberwithin{table}{section}    % Nummererer tabeller pr. seksjon
+\numberwithin{figure}{section}  % Nummererer figurer pr. seksjon
+                                % Nedenfor er for å opprette ekstra underparagrafer. Disse dukker ikke opp i innholdsfortegnelsen,
+\usepackage{afterpage}
+\usepackage{titlesec}
+\setcounter{secnumdepth}{5}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+
+\newcommand\Signature[4]{\par\bigskip
+  \setlength\tabcolsep{0pt}
+  \begin{tabular}{@{\hspace{.05\textwidth}}>{\centering\arraybackslash}p{.4\textwidth}
+      @{\hspace*{.1\textwidth}}>{\centering\arraybackslash}p{.4\textwidth}@{\hspace{.05\textwidth}}}
+  \multicolumn{2}{c}{#1, \today} \\[10ex]
+  \rule{.4\textwidth}{0.4pt} & \rule{.4\textwidth}{0.4pt} \\
+  #2 & #3 \\[10ex]
+  \multicolumn{2}{c}{\rule{.4\textwidth}{0.4pt}} \\
+  \multicolumn{2}{c}{#4}
+\end{tabular}
+\par
+}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
+\newcommand{\coo}{CO\textsubscript{2}}
+
+
+\tolerance=2000
+\emergencystretch=10pt
+
+% Add a newline after sub paragraph
+\titleformat{\subparagraph}
+    {\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
+\titlespacing*{\subparagraph}{0pt}{3.25ex plus 1ex minus .2ex}{1em plus .1em minus .1em}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% end preamble %%%%%%%%%%%%%%
+\begin{document}
+\thispagestyle{empty} % No page numbering on the title page
+% Titlepage
+\title{\textbf{IELET2001 project report}}
+\author{Helle Augland Grasmo\\Sebastian Hernø Gabrielli\\Henrik Gisvold Sandberg\\Emilie Johnsen}
+\date{December 2023}
+\begin{titlepage}
+
+	\centering 
+	\scshape 
+	\vspace*{\baselineskip}
+	\rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt} 
+	\rule{\textwidth}{0.4pt}
+ 
+	\vspace{0.75\baselineskip}
+	{\LARGE How to\\ Write\\ a norwegian text\\} % Title
+	\vspace{0.75\baselineskip} % Whitespace below the title
+ 
+	\rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt} % Thin horizontal rule
+	\rule{\textwidth}{0.4pt} % Thick horizontal rule
+
+        %\vspace{2\baselineskip}
+	%Room booking system\\
+
+        \vspace{0.5\baselineskip} 
+	
+	\textit{Your university\\}
+        
+	\vspace*{3\baselineskip} % Whitespace under the subtitle
+	Written By\\
+	\vspace{0.5\baselineskip} % Whitespace before the editors
+	{\scshape Henrik Ibsen\\Bjørnstjerne Bjørnson\\Aleksander Kjelland\\Jonas Lie\\} % Editor list	
+	
+	\vfill 
+	
+	\vspace{0.3\baselineskip} 
+        \begin{figure}[b]
+        \centering
+        \includegraphics[width=0.5\textwidth]{Images/Logo.png}\\
+    Department of Electronic Systems
+        \end{figure}
+\end{titlepage}
+
+\pagestyle{fancy}
+%\fancyhf{} % clear all header and footer fields
+\fancyfoot[C]{\thepage\ \(|\) \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt} % optional: remove the header rule
+
+\pagenumbering{roman}
+
+\thispagestyle{empty}
+\renewcommand{\contentsname}{Content}
+\tableofcontents
+
+
+
+\newpage
+\pagenumbering{arabic}
+    \input{Sections/1 - Introduction}
+    \newpage
+    \input{Sections/2 - Method}
+    \newpage
+    \input{Sections/3 - Theory}    
+    \newpage
+    \input{Sections/4 - Results}
+    \newpage
+    \input{Sections/5 - Discussion}
+    \newpage
+    \input{Sections/6 - Conclusion}
+    \newpage
+    \nocite{*}
+    \bibliographystyle{plainnat}
+    \bibliography{bibliography}
+    
+
+
+
+    
+  
+%%%%%%%%%%%%% end main part %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%% Dersom dere har kilder eller vil ha vedlegg %%%%%%%%%%%%%%%
+
+% \printbibliography
+% \clearpage
+% \pagenumbering{Roman}
+%\renewcommand{\thepage}{V\arabic{page}-1}
+
+\end{document}
